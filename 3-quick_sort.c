@@ -59,7 +59,7 @@ void _qsort(int *array, int low, int high, size_t size)
 	}
 }
 /**
- * quick_sort - Quick Sort Algorithme using lomuto partition
+ * quick_sort - Implements the quick sort algorithm
  * @array: Array to be sorted
  * @size: Size of the array
  */
