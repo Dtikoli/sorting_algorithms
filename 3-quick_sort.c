@@ -13,6 +13,7 @@ void swap(int *x, int *y)
 	*x = *y;
 	*y = temp;
 }
+
 /**
  * _split - Partitions an array and using pivot
  * @array: Array
@@ -24,22 +25,24 @@ void swap(int *x, int *y)
 int _split(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int x = low - 1, y;
+	int i, j = low - 1;
 
-	for (y = low; y <= high; y++)
+	for (i = low; i <= high; i++)
 	{
-		if (array[y] <= pivot)
+		if (array[i] <= pivot)
 		{
-			x++;
-			if (x != y)
+			j++;
+			if (i != j)
 			{
-				swap(&array[x], &array[y]);
+				swap(&array[i], &array[j]);
 				print_array(array, size);
 			}
 		}
 	}
-	return (x);
+
+	return (j);
 }
+
 /**
  * _qsort - Sorts an array recursively using Lomoto's qsort algorithm
  * @array: Array to be sorted
@@ -49,15 +52,16 @@ int _split(int *array, int low, int high, size_t size)
  */
 void _qsort(int *array, int low, int high, size_t size)
 {
-	int i;
+	int idx;
 
 	if (low < high)
 	{
-		i = _split(array, low, high, size);
-		_qsort(array, low, i - 1, size);
-		_qsort(array, i + 1, high, size);
+		idx = _split(array, low, high, size);
+		_qsort(array, low, idx - 1, size);
+		_qsort(array, idx + 1, high, size);
 	}
 }
+
 /**
  * quick_sort - Implements the quick sort algorithm
  * @array: Array to be sorted
