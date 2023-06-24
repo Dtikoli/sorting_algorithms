@@ -25,6 +25,7 @@ int find_min(int *array, size_t size, int start_index)
 	}
 	if (idx == start_index)
 		return (-1);
+
 	return (idx);
 }
 
