@@ -12,6 +12,7 @@ void node_swap(listint_t **head, listint_t *node1, listint_t *node2)
 
 	if (node1 == NULL || node2 == NULL)
 		return;
+
 	tmp1 = node1->prev;
 	tmp2 = node2->next;
 	if (tmp1) /* if nodes are adjacent */
@@ -35,10 +36,9 @@ void insertion_sort_list(listint_t **list)
 	listint_t *current, *prev;
 	int val;
 
-	if (list == NULL || (*list)->next == NULL || (*list) == NULL)
-	{
+	if (!list || !(*list)->next || !*list)
 		return;
-	}
+
 	current = *list;
 	while (current)
 	{
