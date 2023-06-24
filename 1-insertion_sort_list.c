@@ -27,8 +27,8 @@ void node_swap(listint_t **head, listint_t *node1, listint_t *node2)
 }
 
 /**
- * insertion_sort_list  - insertion_sort_list
- * @list: double point to the head of a doubly liked list
+ * insertion_sort_list  - implements the insertion sort algorithm
+ * @list: double pointer to the head of a linked list
  */
 void insertion_sort_list(listint_t **list)
 {
