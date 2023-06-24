@@ -43,7 +43,7 @@ void insertion_sort_list(listint_t **list)
 	while (current)
 	{
 		prev = current->prev;
-				val = current->n;
+		val = current->n;
 
 		while (prev && prev->n > val)
 		{
