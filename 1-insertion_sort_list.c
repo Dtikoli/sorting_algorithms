@@ -10,7 +10,7 @@ void node_swap(listint_t **head, listint_t *node1, listint_t *node2)
 {
 	listint_t *tmp1 = NULL, *tmp2 = NULL;
 
-	if (node1 == NULL || node2 == NULL)
+	if (!node1 || !node2)
 		return;
 
 	tmp1 = node1->prev;
