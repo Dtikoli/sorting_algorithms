@@ -10,23 +10,23 @@
 
 void _heapify(int *array, int heap, int idx, int size)
 {
-	int lar, left, right, tmp;
+	int large, left, right, tmp;
 
-	lar = idx;
+	large = idx;
 	left = 2 * idx + 1;
 	right = 2 * idx + 2;
 
-	if (left < heap && array[left] > array[lar])
-		lar = left;
-	if (right < heap && array[right] > array[lar])
-		lar = right;
-	if (lar != idx)
+	if (left < heap && array[left] > array[large])
+		large = left;
+	if (right < heap && array[right] > array[large])
+		large = right;
+	if (large != idx)
 	{
 		tmp = array[idx];
-		array[idx] = array[lar];
-		array[lar] = tmp;
+		array[idx] = array[large];
+		array[large] = tmp;
 		print_array(array, size);
-		_heapify(array, heap, lar, size);
+		_heapify(array, heap, large, size);
 	}
 }
 
@@ -39,10 +39,10 @@ void heap_sort(int *array, size_t size)
 {
 	int i, tmp;
 
-	i = size / 2 - 1;
-
 	if (!array || size < 2)
 		return;
+
+	i = size / 2 - 1;
 
 	for (; i >= 0; i--)
 		_heapify(array, size, i, size);
