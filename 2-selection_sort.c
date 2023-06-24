@@ -7,26 +7,24 @@
  * @start_index: Starting search index
  * Return: Index of min on success, else -1.
  */
-
 int find_min(int *array, size_t size, int start_index)
 {
-	int min, idx;
-	int i;
+	int min_idx, idx, min;
 
 	min = array[start_index];
-	idx = start_index;
-	for (i = start_index; i < (int)size; i++)
+	min_idx = start_index;
+	for (idx = start_index; idx < (int) size; idx++)
 	{
-		if (array[i] < min)
+		if (array[idx] < min)
 		{
-			min = array[i];
-			idx = i;
+			min = array[idx];
+			min_idx = idx;
 		}
 	}
-	if (idx == start_index)
+	if (min_idx == start_index)
 		return (-1);
 
-	return (idx);
+	return (min_idx);
 }
 
 /**
@@ -36,17 +34,19 @@ int find_min(int *array, size_t size, int start_index)
  */
 void selection_sort(int *array, size_t size)
 {
-	int i;
-	int min, tmp;
+	int min_idx, tmp, idx;
 
-	for (i = 0; i < (int)size; i++)
+	if (!array || size < 2)
+		return;
+
+	for (idx = 0; idx < (int) size; idx++)
 	{
-		min = find_min(array, size, i);
-		if (min != -1)
+		min_idx = find_min(array, size, idx);
+		if (min_idx != -1)
 		{
-			tmp = array[i];
-			array[i] = array[min];
-			array[min] = tmp;
+			tmp = array[idx];
+			array[idx] = array[min_idx];
+			array[min_idx] = tmp;
 			print_array(array, size);
 		}
 	}
