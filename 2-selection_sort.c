@@ -29,7 +29,7 @@ int find_min(int *array, size_t size, int start_index)
 }
 
 /**
- * selection_sort - Implements the selection sort algrithme
+ * selection_sort - Implements the selection sort algrithm
  * @array: Array to sort
  * @size: Size of the array
  */
